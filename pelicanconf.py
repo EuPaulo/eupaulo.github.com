@@ -11,6 +11,7 @@ LOCALE = 'pt_BR.utf8'
 THEME = "iris"
 TWITTER_USERNAME = 'paulomiramor'
 EMAIL = 'paulomiramor@gmail.com'
+DISQUS_SITENAME = 'eupaulo'
 
 SUMMARY_MAX_LENGTH = 20
 
