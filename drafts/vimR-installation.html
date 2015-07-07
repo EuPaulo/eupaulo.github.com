@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt">
+<link rel="shortcut icon" href="favicon.ico"/>  
+<head>
+        <title>Eu, Paulo</title>
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/css/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../theme/css/font-awesome.css" type="text/css" />
+        <meta charset="utf-8" />
+      
+
+        <!-- Javascript-->
+        <script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script async type="text/javascript"> 
+        $(function() {
+            function invisibleMenu() {
+                var now = 0;
+                var pixels = 300;
+                var opacity = -1;
+
+                var move = function() {
+                    now = $(window).scrollTop();
+                    if (now > pixels && opacity !== 0)
+                        opacity = 0;
+                    else if (now < pixels){
+                        // Depends on the position not if scrolls down or up
+                        opacity = (1 - now/pixels);
+                    }
+                    $("div.navigation").css({"opacity": opacity});
+                }
+                $(window).scroll(move);
+                move();
+            }
+            invisibleMenu();
+          });
+          </script> 
+</head>
+
+<body id="index" class="home">
+     <div class="navigation">
+        <ol class="nav">
+          <li class="current"><a href="..">Blog</a> </li>
+          <li><a href="../archives.html">Arquivo</a></li>
+          <li><a href="../tags.html">Tags</a> </li>
+<!--          <li><a href="">RSS</a> </li> -->
+          <li><a href="../pages/sobre-mim.html">Sobre</a> </li>
+        </ol>
+      </div>
+    
+        <header id="banner" class="body">
+                <div  style="line-height: 1" class="banner"><a href="..">Eu, Paulo <p></p> <strong>Programação, estatística e vida...</strong></a></div>
+<!--                <div class="banner"> <strong>Programação, estatística e vida...</strong></div> -->
+        </header><!-- /#banner -->
+<!--        <nav id="menu"><ul>
+            <li class="active"><a href="../category/artigos.html">Artigos</a></li>
+
+        </ul></nav><!-- /#menu -->
+        
+        <div class="box">
+<section id="content" class="body">
+  <header class="post">
+    <h1 class="entry-title">
+      Usando o vim e&nbsp;R!?
+    </h1>
+  </header>
+  <footer class="post-info">
+    <abbr>
+      Seg 29 junho 2015 
+         By <a class="url fn" href="../author/paulo-miranda-moreira.html">Paulo Miranda Moreira</a>
+  
+    </abbr>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Quando comecei a aprender R (nos idos tempos de 2010), ainda usava Windows, e, até por indicação do professor da disciplina que eu estava cursando, acabei ficando com a interface gráfica para R no Windows. 
+Disciplina cursada sem problemas, fiquei algum (bom) tempo sem mexer. Apesar de ter gostado, ainda não tinha noção do <em>poder do R</em>!!!</p>
+<p>Quando precisei utilizar de novo, me lembrei que alguém na disciplina havia comentado sobre RStudio. Resolvi testar.
+Descobri muitas vantagens, como auto completar funções e objetos, destaque de sintaxe, identação. Mais tarde descobri como utilizar RMardown e o pacote <code>Knitr</code> para gerar relatórios. 
+Estava (e ainda estou) muito satisfeito com o RStudio - a equipe de desenvolvimento não para de criar novas funcionalidades.
+Pode ser utilizado por usuários desde o nível básico (inclusive é a <span class="caps">IDE</span> recomendada no <a href="http://www.anova.biz/cursoR.html">curso básico</a> que desenvolvi para a <span class="caps">AN</span>Φ<span class="caps">VA</span>) até o&nbsp;avançado.</p>
+<p>Mas senti que estava na hora de avançar um pouco mais. 
+No livro &#8220;The Pragmatic Programmer&#8221;, os autores recomendam que um bom programador domine <em>muito bem</em> pelo menos um editor de texto.
+Levei essa ideia a sério, especialmente porque estou começando a me aprofundar em Python, e gostaria de ter uma única ferramenta para trabalhar em várias linguagens, como R, Python e Latex.
+Quando precisava fazer algo em Python e Latex, utilizava o Pluma (gedit), o que não era muito eficiente. A tarefa que mais demorava e me angustiava era acertar a identação - na verdade eu acabava desistindo e me conformando com identação&nbsp;errada&#8230;</p>
+<p>Tentei o rgedit, plugin para utilizar o R no gedit, mas não resolveria e não resolveu o meu problema com outras&nbsp;linguagens.</p>
+<p>Pesquisando internet afora, pude perceber que havia duas opções indicadas por bons programadores: Emacs e Vi(m). 
+Já havia tentado o Emacs (mais de uma vez), sem sucesso. Achei meio confuso cheio de comandos <code>M-x</code> que não faziam sentido para mim.
+Decidi encarar o Vim, mesmo sabendo que a curva de aprendizado, quando comparada à de outros editores de texto, é&nbsp;assim:</p>
+<p><center></p>
+<p><img alt="vimLearningCurve" src="../images/vimLearningCurve.png" /></p>
+<p><em>Atenção: Isso é apenas uma brincadeira. Se você ainda receia usar o Vim por considerá-lo difícil, leia esse <a href="https://robots.thoughtbot.com/the-vim-learning-curve-is-a-myth">artigo</a>.</em></p>
+<p></center></p>
+<p>Brincadeiras à parte, não é que gostei? Fiz o tutorial que vem no editor e estou me acostumando com os comandos. Esse post está sendo escrito utilizando Vim ;)
+A próxima parte seria entender como usar o R com Vim. Compartilho com você a aventura de instalar o Vim-R-plugin, aventura um tanto quanto selvagem, mas que no final valeu a pena. Não posso deixar de destacar que o Vim-R-plugin foi desenvolvido e é mantido por um brasileiro!!! A <a href="http://www.lepem.ufc.br/aquino.php">Jakson Alves de Aquino</a>, meu reconhecimento e&nbsp;agradecimento.</p>
+<p><strong>Importante:</strong> estou utilizando Linux Mint 17, vim 7.4 e Vim-R-plugin 1.2.6. Se você usa outra distribuição Linux esses passos talvez não funcionem, e se você usa outro sistema operacional, informe-se na página do&nbsp;plugin.</p>
+<h1>Mãos à&nbsp;obra</h1>
+<h2>Instalando&nbsp;pré-requisitos</h2>
+<h3>Instalação do&nbsp;Vim</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">vim</span>
+</pre></div>
+
+
+<p>Checar se Vim tem instalado os features <code>+libcall</code>, <code>+clientserver</code> e <code>+conceal</code>. No&nbsp;terminal:</p>
+<div class="highlight"><pre><span class="n">vim</span>
+</pre></div>
+
+
+<p>E depois que o Vim&nbsp;abrir:</p>
+<div class="highlight"><pre><span class="p">:</span><span class="k">version</span>
+</pre></div>
+
+
+<p>No meu caso faltava o <code>+clientserver</code>. Para resolver o problema bastou instalar o pacote <code>vim-gnome</code>:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">vim</span><span class="o">-</span><span class="n">gnome</span>
+</pre></div>
+
+
+<h3>Instalação e configuração do&nbsp;R</h3>
+<p>Se você ainda não o fez, instalei R <a href="http://r-project.org/">R</a> (versão 3.0.0 ou&nbsp;superior)</p>
+<p>Instalar o pacote vimcom no R a partir do código fonte. Para isso antes é necessário antes instalar o <em>X11 headers</em>:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libx11</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+
+
+<p>Depois, no R, basta utilizar o código abaixo para instalar o pacote <code>vimcom</code></p>
+<div class="highlight"><pre>download.file<span class="p">(</span><span class="s">&quot;http://www.lepem.ufc.br/jaa/vimr/vimcom_1.2-6.tar.gz&quot;</span><span class="p">,</span>
+              destfile <span class="o">=</span> <span class="s">&quot;vimcom_1.2-6.tar.gz&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.gz&quot;</span><span class="p">,</span> type <span class="o">=</span> <span class="s">&quot;source&quot;</span><span class="p">,</span>
+                  repos <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span>
+</pre></div>
+
+
+<p>O arquivo .Rprofile é um arquivo de configuração que guarda suas opções e pacotes a serem carregados ao se iniciar o R. Colocar no arquivo&nbsp;.Rprofile:</p>
+<div class="highlight"><pre><span class="kr">if</span><span class="p">(</span>interactive<span class="p">()){</span>
+    library<span class="p">(</span>colorout<span class="p">)</span>
+    library<span class="p">(</span>setwidth<span class="p">)</span>
+    options<span class="p">(</span>vimcom.verbose <span class="o">=</span> <span class="m">1</span><span class="p">)</span> <span class="c1"># opcional</span>
+    library<span class="p">(</span>vimcom<span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3>Instalação do&nbsp;tmux:</h3>
+<p>O tmux (terminal multiplexer) permite a utilização do editor de texto e do R na mesma janela do&nbsp;terminal.</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">tmux</span>
+</pre></div>
+
+
+<h3>Instalar&nbsp;wmctrl:</h3>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">wmctrl</span>
+</pre></div>
+
+
+<p>Colocar no arquivo&nbsp;.bashrc:</p>
+<div class="highlight"><pre><span class="n">alias</span> <span class="n">vimr</span><span class="o">=</span><span class="s">&quot;vim --servername VIM&quot;</span>
+</pre></div>
+
+
+<p>Observação: escolhi vimr porque vou utilizá-lo quando for utilizar o&nbsp;R.</p>
+<p>Começar nova sessão shell para o alias&nbsp;funcionar.</p>
+<p>Colocar no&nbsp;.vimrc</p>
+<div class="highlight"><pre><span class="k">set</span> <span class="nb">nocompatible</span>
+<span class="nb">syntax</span> enable
+<span class="k">filetype</span> plugin <span class="k">on</span>
+<span class="k">filetype</span> indent <span class="k">on</span>
+</pre></div>
+
+
+<p>Baixar a última versão do plugin&nbsp;em </p>
+<p>http://www.vim.org/scripts/script.php?script_id=2628</p>
+<p>No diretório em que o plugin baixado&nbsp;está:</p>
+<div class="highlight"><pre><span class="n">vim</span> <span class="n">Vim</span><span class="o">-</span><span class="n">R</span><span class="o">-</span><span class="n">plugin</span><span class="p">.</span><span class="n">vmb</span>
+</pre></div>
+
+
+<p>Depois que uma tela como essa&nbsp;aparecer:   </p>
+<p>Digite</p>
+<div class="highlight"><pre><span class="p">:</span><span class="k">so</span> %
+</pre></div>
+
+
+<p>e aperte enter quantas vezes for necessário até o fim da instalação.
+ Quando uma tela como essa&nbsp;aparecer:</p>
+<p>saia do vim digitando <code>vim :q</code></p>
+<p>Para entrar&nbsp;digite</p>
+<div class="highlight"><pre><span class="n">vimr</span> <span class="n">novoArquivo</span><span class="p">.</span><span class="n">R</span>
+</pre></div>
+
+
+<p>Aparecerá tela normal do Vim. Para sessão interativa do R:
+    :::vim&nbsp;\rf</p>
+<p>Customização
+  Tela partida na vertical em vez de&nbsp;horizontal</p>
+<p>Instruções de uso
+\l - não precisa estar no modo normal, pode estar no modo de inserção
+Shift + - no modo inserção cria o sinal de atribuição (&lt;-), já com&nbsp;espaços.</p>
+<h1>Customização</h1>
+<h2>Teste</h2>
+<p>Próximo artigo: Opcionais na instalação do&nbsp;Vim-R-Plugin</p>
+<p>Como colorir adicionar coloração do&nbsp;output</p>
+<p>no R:
+  download.file(&#8220;http://www.lepem.ufc.br/jaa/vimr/colorout_1.1-1.tar.gz&#8221;,
+                destfile = &#8220;colorout_1.1-1.tar.gz&#8221;)
+  install.packages(&#8220;colorout_1.1-1.tar.gz&#8221;, type = &#8220;source&#8221;, repos = <span class="caps">NULL</span>)</p>
+<p>Obs: colocar library(colorout) no&nbsp;.Rprofile</p>
+<p>Suporte para 256 cores no emulador de terminal - ncurses-term
+  sudo apt-get install&nbsp;ncurses-term</p>
+<h1>install.packages(&#8220;setwidth&#8221;).</h1>
+<p>Como&nbsp;autocompletar</p>
+  </div><!-- /.entry-content -->
+</section>
+            <hr/>
+            <footer id="contentinfo" class="footer">
+
+                <div class="social">
+                        <a href="https://twitter.com/paulomiramor"><i class="icon-twitter"></i>  </a>
+                        <a href="https://br.linkedin.com/pub/paulo-moreira/9a/868/81"><i class="icon-linkedin"></i>  </a>
+                        <a href="https://github.com/EuPaulo"><i class="icon-github"></i>  </a>
+                        <a href="mailto:paulomiramor@gmail.com"><i class="icon-envelope"></i> </a>
+                </div>
+            </footer><!-- /#contentinfo -->
+        </div>
+        <!--Add statistycs-->
+
+</body>
+</html>
