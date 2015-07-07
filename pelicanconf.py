@@ -8,7 +8,7 @@ SITESUBTITLE = 'Programa\xe7\xe3o, estat\xedstica e vida...'
 SITEURL = ''
 GITHUB_URL = 'http://github.com/EuPaulo'
 LOCALE = 'pt_BR.utf8'
-THEME = "temas/pelican-themes/iris"
+THEME = "iris"
 TWITTER_USERNAME = 'paulomiramor'
 EMAIL = 'paulomiramor@gmail.com'
 
