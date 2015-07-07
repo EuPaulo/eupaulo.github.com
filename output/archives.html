@@ -1,54 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt">
+<link rel="shortcut icon" href="favicon.ico"/>  
 <head>
+        <title>Eu, Paulo</title>
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/font-awesome.css" type="text/css" />
         <meta charset="utf-8" />
-        <title>Programação, estatística e mais</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+      
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+        <!-- Javascript-->
+        <script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script async type="text/javascript"> 
+        $(function() {
+            function invisibleMenu() {
+                var now = 0;
+                var pixels = 300;
+                var opacity = -1;
+
+                var move = function() {
+                    now = $(window).scrollTop();
+                    if (now > pixels && opacity !== 0)
+                        opacity = 0;
+                    else if (now < pixels){
+                        // Depends on the position not if scrolls down or up
+                        opacity = (1 - now/pixels);
+                    }
+                    $("div.navigation").css({"opacity": opacity});
+                }
+                $(window).scroll(move);
+                move();
+            }
+            invisibleMenu();
+          });
+          </script> 
 </head>
 
 <body id="index" class="home">
+     <div class="navigation">
+        <ol class="nav">
+          <li><a href=".">Blog</a> </li>
+          <li class="current"><a href="./archives.html">Arquivo</a></li>
+          <li><a href="./tags.html">Tags</a> </li>
+<!--          <li><a href="./">RSS</a> </li> -->
+          <li><a href="./pages/sobre-mim.html">Sobre</a> </li>
+        </ol>
+      </div>
+    
         <header id="banner" class="body">
-                <h1><a href="/">Programação, estatística e mais </a></h1>
-                <nav><ul>
-                </ul></nav>
+                <div  style="line-height: 1" class="banner"><a href=".">Eu, Paulo <p></p> <strong>Programação, estatística e vida...</strong></a></div>
+<!--                <div class="banner"> <strong>Programação, estatística e vida...</strong></div> -->
         </header><!-- /#banner -->
-<section id="content" class="body">
-<h1>Archives for Programação, estatística e mais</h1>
+<!--        <nav id="menu"><ul>
+            <li><a href="./category/artigos.html">Artigos</a></li>
 
-<dl>
-</dl>
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
+        </ul></nav><!-- /#menu -->
+        
+        <div class="box">
+<h2>Arquivo:</h2>
+
+<table class="archives">
+    <tr>
+        <td>Dom 28 junho 2015</td>
+        <td><a href="./hello-world.html">Hello&nbsp;World!</a></td>
+    </tr>
+</table>
+            <hr/>
+            <footer id="contentinfo" class="footer">
+
                 <div class="social">
-                        <h2>social</h2>
-                        <ul>
-
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+                        <a href="https://twitter.com/paulomiramor"><i class="icon-twitter"></i>  </a>
+                        <a href="https://br.linkedin.com/pub/paulo-moreira/9a/868/81"><i class="icon-linkedin"></i>  </a>
+                        <a href="https://github.com/EuPaulo"><i class="icon-github"></i>  </a>
+                        <a href="mailto:paulomiramor@gmail.com"><i class="icon-envelope"></i> </a>
+                </div>
+            </footer><!-- /#contentinfo -->
+        </div>
+        <!--Add statistycs-->
 
 </body>
 </html>
