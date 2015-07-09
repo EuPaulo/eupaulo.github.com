@@ -98,7 +98,7 @@ Decidi encarar o Vim, mesmo sabendo que a curva de aprendizado, quando comparada
 <p></center></p>
 <p>Brincadeiras à parte, não é que gostei? Fiz o tutorial que vem no editor e estou me acostumando com os comandos. Esse post está sendo escrito utilizando Vim ;)
 A próxima parte seria entender como usar o R com Vim. Compartilho com você a aventura de instalar o Vim-R-plugin, aventura um tanto quanto selvagem, mas que no final valeu a pena. Não posso deixar de destacar que o Vim-R-plugin foi desenvolvido e é mantido por um brasileiro!!! A <a href="http://www.lepem.ufc.br/aquino.php">Jakson Alves de Aquino</a>, meu reconhecimento e&nbsp;agradecimento.</p>
-<p><strong>Importante:</strong> estou utilizando Linux Mint 17, vim 7.4 e Vim-R-plugin 1.2.6. Se você usa outra distribuição Linux esses passos talvez não funcionem, e se você usa outro sistema operacional, informe-se na página do&nbsp;plugin.</p>
+<p><strong>Importante:</strong> estou utilizando Linux Mint 17, vim 7.4 e Vim-R-plugin 1.2.6. Se você usa outra distribuição Linux esses passos talvez não funcionem, e se você usa outro sistema operacional, informe-se na página de <a href="http://www.lepem.ufc.br/jaa/r-plugin.html">documentação</a> do&nbsp;plugin.</p>
 <h1>Mãos à&nbsp;obra</h1>
 <h2>Instalando&nbsp;pré-requisitos</h2>
 <h3>Instalação do&nbsp;Vim</h3>
@@ -122,7 +122,7 @@ A próxima parte seria entender como usar o R com Vim. Compartilho com você a a
 
 
 <h3>Instalação e configuração do&nbsp;R</h3>
-<p>Se você ainda não o fez, instalei R <a href="http://r-project.org/">R</a> (versão 3.0.0 ou&nbsp;superior)</p>
+<p>Se você ainda não o fez, instale o R <a href="http://r-project.org/">R</a> (versão 3.0.0 ou&nbsp;superior)</p>
 <p>Instalar o pacote vimcom no R a partir do código fonte. Para isso antes é necessário antes instalar o <em>X11 headers</em>:</p>
 <div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libx11</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
@@ -138,8 +138,6 @@ install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.g
 
 <p>O arquivo .Rprofile é um arquivo de configuração que guarda suas opções e pacotes a serem carregados ao se iniciar o R. Colocar no arquivo&nbsp;.Rprofile:</p>
 <div class="highlight"><pre><span class="kr">if</span><span class="p">(</span>interactive<span class="p">()){</span>
-    library<span class="p">(</span>colorout<span class="p">)</span>
-    library<span class="p">(</span>setwidth<span class="p">)</span>
     options<span class="p">(</span>vimcom.verbose <span class="o">=</span> <span class="m">1</span><span class="p">)</span> <span class="c1"># opcional</span>
     library<span class="p">(</span>vimcom<span class="p">)</span>
 <span class="p">}</span>
@@ -162,9 +160,8 @@ install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.g
 </pre></div>
 
 
-<p>Observação: escolhi vimr porque vou utilizá-lo quando for utilizar o&nbsp;R.</p>
-<p>Começar nova sessão shell para o alias&nbsp;funcionar.</p>
-<p>Colocar no&nbsp;.vimrc</p>
+<p>*Observação: a documentação sugere usar o alias <code>vim</code>. Escolhi <code>vimr</code> porque vou utilizá-lo para abrir arquivos <code>.R</code>. Começar nova sessão shell para o alias&nbsp;funcionar.</p>
+<p>Colocar no <code>.vimrc</code>. Caso você não esteja acostumado com o vim, o arquivo <code>.vimrc</code> é um arquivo colocado no seu diretório Home que contem suas configurações do&nbsp;vim.</p>
 <div class="highlight"><pre><span class="k">set</span> <span class="nb">nocompatible</span>
 <span class="nb">syntax</span> enable
 <span class="k">filetype</span> plugin <span class="k">on</span>
@@ -174,12 +171,13 @@ install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.g
 
 <p>Baixar a última versão do plugin&nbsp;em </p>
 <p>http://www.vim.org/scripts/script.php?script_id=2628</p>
-<p>No diretório em que o plugin baixado&nbsp;está:</p>
+<p>No diretório em que o plugin baixado está, execute no&nbsp;terminal:</p>
 <div class="highlight"><pre><span class="n">vim</span> <span class="n">Vim</span><span class="o">-</span><span class="n">R</span><span class="o">-</span><span class="n">plugin</span><span class="p">.</span><span class="n">vmb</span>
 </pre></div>
 
 
 <p>Depois que uma tela como essa&nbsp;aparecer:   </p>
+<p><img alt="instalandoPlugin" src="../images/instalandoPlugin.png" /></p>
 <p>Digite</p>
 <div class="highlight"><pre><span class="p">:</span><span class="k">so</span> %
 </pre></div>
@@ -187,32 +185,50 @@ install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.g
 
 <p>e aperte enter quantas vezes for necessário até o fim da instalação.
  Quando uma tela como essa&nbsp;aparecer:</p>
-<p>saia do vim digitando <code>vim :q</code></p>
-<p>Para entrar&nbsp;digite</p>
-<div class="highlight"><pre><span class="n">vimr</span> <span class="n">novoArquivo</span><span class="p">.</span><span class="n">R</span>
+<p><img alt="fimInstalaçãoRPlugin" src="../images/fimInstalaçãoRPlugin.png" /></p>
+<p>saia do vim digitando <code>:q</code>.</p>
+<p>Parabéns! Você concluiu a instalação do Vim-R-Plugin. Agora veja abaixo como iniciar uma sessão do vim com&nbsp;R.</p>
+<p>Para entrar execute no&nbsp;terminal:</p>
+<div class="highlight"><pre><span class="n">tmux</span>
+<span class="n">vimr</span> <span class="n">novoArquivo</span><span class="p">.</span><span class="n">R</span>
 </pre></div>
 
 
 <p>Aparecerá tela normal do Vim. Para sessão interativa do R:
     :::vim&nbsp;\rf</p>
+<p>Você deverá ver a tela&nbsp;abaixo:</p>
 <p>Customização
   Tela partida na vertical em vez de&nbsp;horizontal</p>
 <p>Instruções de uso
 \l - não precisa estar no modo normal, pode estar no modo de inserção
 Shift + - no modo inserção cria o sinal de atribuição (&lt;-), já com&nbsp;espaços.</p>
-<h1>Customização</h1>
-<h2>Teste</h2>
-<p>Próximo artigo: Opcionais na instalação do&nbsp;Vim-R-Plugin</p>
-<p>Como colorir adicionar coloração do&nbsp;output</p>
+<h2>Instalação de opcionais do&nbsp;Vim-R-Plugin</h2>
+<p>Alguns plugins e pacotes adicionais podem melhorar a visualização do código no&nbsp;terminal.</p>
+<h3>colorout</h3>
+<p>O output no terminal não oferece destaque de sintaxe. Você pode adicionar cor ao output utilizando o pacote&nbsp;colorout.</p>
 <p>no R:
-  download.file(&#8220;http://www.lepem.ufc.br/jaa/vimr/colorout_1.1-1.tar.gz&#8221;,
-                destfile = &#8220;colorout_1.1-1.tar.gz&#8221;)
-  install.packages(&#8220;colorout_1.1-1.tar.gz&#8221;, type = &#8220;source&#8221;, repos = <span class="caps">NULL</span>)</p>
-<p>Obs: colocar library(colorout) no&nbsp;.Rprofile</p>
-<p>Suporte para 256 cores no emulador de terminal - ncurses-term
-  sudo apt-get install&nbsp;ncurses-term</p>
-<h1>install.packages(&#8220;setwidth&#8221;).</h1>
-<p>Como&nbsp;autocompletar</p>
+    :::R
+    download.file(&#8220;http://www.lepem.ufc.br/jaa/vimr/colorout_1.1-1.tar.gz&#8221;,
+                  destfile = &#8220;colorout_1.1-1.tar.gz&#8221;)
+    install.packages(&#8220;colorout_1.1-1.tar.gz&#8221;, type = &#8220;source&#8221;, repos = <span class="caps">NULL</span>)</p>
+<p>Não se esqueça de colocar <code>library(colorout)</code> no <code>.Rprofile</code>, dentro das chaves do <code>if(interactive())</code> que foi colocado&nbsp;anteriormente.</p>
+<h3>setwidth</h3>
+<p>Ajusta automaticamente a largura da sessão do R no terminal de acordo com o tamanho da janela.
+É um pacote que pode ser instalado do <span class="caps">CRAN</span>:</p>
+<div class="highlight"><pre>install.packages<span class="p">(</span><span class="s">&quot;setwidth&quot;</span><span class="p">)</span>.
+</pre></div>
+
+
+<p>Adicione ao arquivo <code>.Rprofile</code> o comando <code>library(colorout)</code>, dentro das chaves do <code>if(interactive())</code>.</p>
+<h3>ncurses-term</h3>
+<p>Suporte para 256 cores no emulador de terminal - ncurses-term. No&nbsp;terminal:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ncurses</span><span class="o">-</span><span class="n">term</span>
+</pre></div>
+
+
+<h3>latexmk</h3>
+<p>Automatiza a compilação de documentos LaTeX para produção de relatórios utilizando <code>Sweave()</code> ou <code>knitr()</code>.</p>
+<p>Assim você está pronto para utilizar o R com o poder do Vim! Em um próximo post mostrarei como uso o Vim-R-Plugin. Caso queira mais informações, não deixe de checar a <a href="http://www.lepem.ufc.br/jaa/r-plugin.html">documentação</a>.</p>
   </div><!-- /.entry-content -->
 <div id="disqus_thread"></div>
 <script type="text/javascript">
