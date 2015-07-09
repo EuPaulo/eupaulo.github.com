@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Eu, Paulo</title><link href="https://eupaulo.github.io/" rel="alternate"></link><link href="https://eupaulo.github.io/feeds/artigos.atom.xml" rel="self"></link><id>https://eupaulo.github.io/</id><updated>2015-06-28T14:50:00-03:00</updated><entry><title>Hello World!</title><link href="https://eupaulo.github.io/hello-world.html" rel="alternate"></link><updated>2015-06-28T14:50:00-03:00</updated><author><name>Paulo Miranda Moreira</name></author><id>tag:eupaulo.github.io,2015-06-28:hello-world.html</id><summary type="html">&lt;p&gt;Inaugurando o&amp;nbsp;blog!&lt;/p&gt;
-&lt;p&gt;Tenho o objetivo de postar nesse espaço conteúdo focado em meu aprendizado sobre estatística e programação,
-voltado para o mundo open source, R, python, vim, e possivelmente outros assuntos&amp;nbsp;aleatórios.&lt;/p&gt;
-&lt;p&gt;Espero que as postagens sejam úteis a&amp;nbsp;você!&lt;/p&gt;</summary></entry></feed>
