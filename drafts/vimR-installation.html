@@ -177,7 +177,7 @@ install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.g
 
 
 <p>Depois que uma tela como essa&nbsp;aparecer:   </p>
-<p><img alt="instalandoPlugin" src="../images/instalandoPlugin.png" /></p>
+<p><img alt="instalandoPlugin" src="{filename}/images/instalandoPlugin.png" /></p>
 <p>Digite</p>
 <div class="highlight"><pre><span class="p">:</span><span class="k">so</span> %
 </pre></div>
@@ -185,7 +185,7 @@ install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.g
 
 <p>e aperte enter quantas vezes for necessário até o fim da instalação.
  Quando uma tela como essa&nbsp;aparecer:</p>
-<p><img alt="fimInstalaçãoRPlugin" src="../images/fimInstalaçãoRPlugin.png" /></p>
+<p><img alt="fimInstalaçãoRPlugin" src="{filename}/images/fimInstalaçãoRPlugin.png" title="= 1em" /></p>
 <p>saia do vim digitando <code>:q</code>.</p>
 <p>Parabéns! Você concluiu a instalação do Vim-R-Plugin. Agora veja abaixo como iniciar uma sessão do vim com&nbsp;R.</p>
 <p>Para entrar execute no&nbsp;terminal:</p>
@@ -197,20 +197,17 @@ install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.g
 <p>Aparecerá tela normal do Vim. Para sessão interativa do R:
     :::vim&nbsp;\rf</p>
 <p>Você deverá ver a tela&nbsp;abaixo:</p>
-<p>Customização
-  Tela partida na vertical em vez de&nbsp;horizontal</p>
-<p>Instruções de uso
-\l - não precisa estar no modo normal, pode estar no modo de inserção
-Shift + - no modo inserção cria o sinal de atribuição (&lt;-), já com&nbsp;espaços.</p>
 <h2>Instalação de opcionais do&nbsp;Vim-R-Plugin</h2>
 <p>Alguns plugins e pacotes adicionais podem melhorar a visualização do código no&nbsp;terminal.</p>
 <h3>colorout</h3>
 <p>O output no terminal não oferece destaque de sintaxe. Você pode adicionar cor ao output utilizando o pacote&nbsp;colorout.</p>
-<p>no R:
-    :::R
-    download.file(&#8220;http://www.lepem.ufc.br/jaa/vimr/colorout_1.1-1.tar.gz&#8221;,
-                  destfile = &#8220;colorout_1.1-1.tar.gz&#8221;)
-    install.packages(&#8220;colorout_1.1-1.tar.gz&#8221;, type = &#8220;source&#8221;, repos = <span class="caps">NULL</span>)</p>
+<p>no&nbsp;R:</p>
+<div class="highlight"><pre>download.file<span class="p">(</span><span class="s">&quot;http://www.lepem.ufc.br/jaa/vimr/colorout_1.1-1.tar.gz&quot;</span><span class="p">,</span>
+              destfile <span class="o">=</span> <span class="s">&quot;colorout_1.1-1.tar.gz&quot;</span><span class="p">)</span>
+install.packages<span class="p">(</span><span class="s">&quot;colorout_1.1-1.tar.gz&quot;</span><span class="p">,</span> type <span class="o">=</span> <span class="s">&quot;source&quot;</span><span class="p">,</span> repos <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span>
+</pre></div>
+
+
 <p>Não se esqueça de colocar <code>library(colorout)</code> no <code>.Rprofile</code>, dentro das chaves do <code>if(interactive())</code> que foi colocado&nbsp;anteriormente.</p>
 <h3>setwidth</h3>
 <p>Ajusta automaticamente a largura da sessão do R no terminal de acordo com o tamanho da janela.
