@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt">
+<link rel="shortcut icon" href="favicon.ico"/>  
+<head>
+        <title>eu, Paulo</title>
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/font-awesome.css" type="text/css" />
+        <meta charset="utf-8" />
+      
+
+        <!-- Javascript-->
+        <script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script async type="text/javascript"> 
+        $(function() {
+            function invisibleMenu() {
+                var now = 0;
+                var pixels = 300;
+                var opacity = -1;
+
+                var move = function() {
+                    now = $(window).scrollTop();
+                    if (now > pixels && opacity !== 0)
+                        opacity = 0;
+                    else if (now < pixels){
+                        // Depends on the position not if scrolls down or up
+                        opacity = (1 - now/pixels);
+                    }
+                    $("div.navigation").css({"opacity": opacity});
+                }
+                $(window).scroll(move);
+                move();
+            }
+            invisibleMenu();
+          });
+          </script> 
+</head>
+
+<body id="index" class="home">
+     <div class="navigation">
+        <ol class="nav">
+          <li class="current"><a href=".">Blog</a> </li>
+          <li><a href="./archives.html">Arquivo</a></li>
+          <li><a href="./tags.html">Tags</a> </li>
+<!--          <li><a href="">RSS</a> </li> -->
+          <li><a href="./pages/sobre-mim.html">Sobre</a> </li>
+        </ol>
+      </div>
+    
+        <header id="banner" class="body">
+                <div  style="line-height: 1" class="banner"><a href=".">eu, Paulo <p></p> <strong>Programação, estatística e vida...</strong></a></div>
+<!--                <div class="banner"> <strong>Programação, estatística e vida...</strong></div> -->
+        </header><!-- /#banner -->
+<!--        <nav id="menu"><ul>
+            <li class="active"><a href="./category/artigos.html">Artigos</a></li>
+
+        </ul></nav><!-- /#menu -->
+        
+        <div class="box">
+<section id="content" class="body">
+  <header class="post">
+    <h1 class="entry-title">
+      Árvores de diretórios em&nbsp;LaTeX
+    </h1>
+  </header>
+  <footer class="post-info">
+    <abbr>
+      Ter 28 julho 2015 
+         Por <a class="url fn" href="./pages/sobre-mim.html">Paulo Miranda Moreira</a>
+  
+   
+    </abbr>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Esses dias precisei criar uma árvore de diretórios em LaTeX. Se você não sabe, uma árvore de diretórios é um diagrama para representar uma estrutura de arquivos&nbsp;qualquer.</p>
+<p>Inicialmente tentei fazer à maneira <span class="caps">DIY</span>. Mas tenho de admitir que o resultado ficou meio&nbsp;&#8220;caído&#8221;. </p>
+<p>Como queria algo mais apresentável, procurei alguma ferramenta mais apropriada. Encontrei o pacote <code>dirtree</code>. Nesse post mostrarei como instalar e utilizar esse pacote, e algumas de suas opções. Estou utilizando Linux Mint&nbsp;17.</p>
+<h1>Instalação</h1>
+<p>Baixe o pacote <code>dirtree</code> <a href="http://ctan.org/pkg/dirtree">aqui</a>. Nesse link você também encontrará a documentação para o&nbsp;pacote.</p>
+<p>Há várias maneiras de instalar um pacote, escolhi a que me pareceu mais fácil. Após baixar o arquivo <code>dirtree.zip</code>, extraí os arquivos para a minha pasta de trabalho. Executando o terminal na&nbsp;pasta:</p>
+<div class="highlight"><pre>pdflatex dirtree.ins
+ctanify dirtree.ins
+</pre></div>
+
+
+<p>Pronto, o pacote está&nbsp;instalado!</p>
+<h1>Utilização</h1>
+<p>Para criar a sua árvore de arquivos, adicione <code>\usepackage{dirtree}</code> ao cabeçalho do seu arquivo <code>.tex</code>.</p>
+<p>A partir daí, basta criar a sua árvore utilizando o <code>\dirtree{}</code>:</p>
+<div class="highlight"><pre><span class="k">\dirtree</span><span class="nb">{</span><span class="c">%</span>
+  .1 /.
+    .2 bin.
+    .2 home.
+    .3 jeancome.
+    .4 texmf.
+    .5 tex.
+    .6 latex.
+    .7 dirtree.
+    .3 jeancomeson.
+    .3 jeancomedaughter.
+    .2 usr.
+    .3 bin.
+    .3 games.
+    .4 fortunes.
+    .3 include.
+    .3 local.
+    .4 bin.
+    .4 share.
+    .5 texmf.
+    .6 fonts.
+    .6 metapost.
+    .6 tex.
+    .3 share.
+<span class="nb">}</span>
+</pre></div>
+
+
+<p>E assim se chega ao&nbsp;resultado:</p>
+<p><img alt="dirtree" src="./images/dirtree.png" /></p>
+<p>Cada número representa o nível da pasta ou&nbsp;arquivo.</p>
+<p>O meu arquivo final ficou&nbsp;assim:</p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[a4paper,11pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[brazilian]</span><span class="nb">{</span>babel<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>dirtree<span class="nb">}</span>
+
+<span class="k">\title</span><span class="nb">{</span>Exemplo de utilização do pacote <span class="k">\emph</span><span class="nb">{</span>dirtree<span class="nb">}</span> para <span class="k">\LaTeX</span><span class="nb">}</span>
+<span class="k">\author</span><span class="nb">{</span>Paulo Miranda Moreira - eupaulo.com<span class="nb">}</span>
+<span class="k">\date</span><span class="nb">{</span><span class="k">\today</span><span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+<span class="k">\maketitle</span>
+
+Exemplo de criação de árvores de diretórios em <span class="k">\LaTeX</span> utilizando
+o pacote <span class="k">\emph</span><span class="nb">{</span>dirtree<span class="nb">}</span>.
+
+Acesse eupaulo.com para saber mais.
+
+<span class="k">\section</span><span class="nb">{</span>Árvore de diretórios<span class="nb">}</span>
+
+<span class="k">\dirtree</span><span class="nb">{</span><span class="c">%</span>
+  .1 home/.
+    .2 documentos/.
+    .3 trabalho/.
+    .3 faculdade/.
+    .2 vídeos/.
+    .2 fotos/.
+    .3 férias/.
+    .3 pastas mil/.
+    .2 downloads/.
+<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+
+
+<p>Você pode baixar o pdf desse documento <a href="/arquivos/exemploDirtree.pdf">aqui</a>.</p>
+<p>Fica bonito,&nbsp;não? </p>
+<p>O pacote permite ainda que você mude a cor dos textos, espaçamente e o tamanho dos quadradinhos dos nós. Para isso, vale a pena checar a <a href="http://ctan.org/pkg/dirtree">documentação</a>.</p>
+  </div><!-- /.entry-content -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'eupaulo'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+            <hr/>
+            <footer id="contentinfo" class="footer">
+
+                <div class="social">
+                        <a href="https://twitter.com/paulomiramor"><i class="icon-twitter"></i>  </a>
+                        <a href="https://br.linkedin.com/pub/paulo-moreira/9a/868/81"><i class="icon-linkedin"></i>  </a>
+                        <a href="https://github.com/EuPaulo"><i class="icon-github"></i>  </a>
+                        <a href="http://stackoverflow.com/users/1930564/paulo-miramor?tab=profile"><i class="icon-stackoverflow"></i>  </a>
+                        <a href="mailto:paulomiramor@gmail.com"><i class="icon-envelope"></i> </a>
+                </div>
+            </footer><!-- /#contentinfo -->
+        </div>
+        <!--Add statistycs-->
+
+</body>
+</html>

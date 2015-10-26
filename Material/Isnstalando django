@@ -1,7 +1,0 @@
-Instalar Django:
-$ pip install Django==1.8.2
-
-Testando a instalação - no Python:
-import django
-django.VERSION
-

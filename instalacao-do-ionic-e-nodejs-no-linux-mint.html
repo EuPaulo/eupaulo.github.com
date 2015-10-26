@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt">
+<link rel="shortcut icon" href="favicon.ico"/>  
+<head>
+        <title>eu, Paulo</title>
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/font-awesome.css" type="text/css" />
+        <meta charset="utf-8" />
+      
+
+        <!-- Javascript-->
+        <script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script async type="text/javascript"> 
+        $(function() {
+            function invisibleMenu() {
+                var now = 0;
+                var pixels = 300;
+                var opacity = -1;
+
+                var move = function() {
+                    now = $(window).scrollTop();
+                    if (now > pixels && opacity !== 0)
+                        opacity = 0;
+                    else if (now < pixels){
+                        // Depends on the position not if scrolls down or up
+                        opacity = (1 - now/pixels);
+                    }
+                    $("div.navigation").css({"opacity": opacity});
+                }
+                $(window).scroll(move);
+                move();
+            }
+            invisibleMenu();
+          });
+          </script> 
+</head>
+
+<body id="index" class="home">
+     <div class="navigation">
+        <ol class="nav">
+          <li class="current"><a href=".">Blog</a> </li>
+          <li><a href="./archives.html">Arquivo</a></li>
+          <li><a href="./tags.html">Tags</a> </li>
+<!--          <li><a href="">RSS</a> </li> -->
+          <li><a href="./pages/sobre-mim.html">Sobre</a> </li>
+        </ol>
+      </div>
+    
+        <header id="banner" class="body">
+                <div  style="line-height: 1" class="banner"><a href=".">eu, Paulo <p></p> <strong>Programação, estatística e vida...</strong></a></div>
+<!--                <div class="banner"> <strong>Programação, estatística e vida...</strong></div> -->
+        </header><!-- /#banner -->
+<!--        <nav id="menu"><ul>
+            <li class="active"><a href="./category/artigos.html">Artigos</a></li>
+
+        </ul></nav><!-- /#menu -->
+        
+        <div class="box">
+<section id="content" class="body">
+  <header class="post">
+    <h1 class="entry-title">
+      Instalação do Ionic e Node.js no Linux&nbsp;Mint
+    </h1>
+  </header>
+  <footer class="post-info">
+    <abbr>
+      Seg 26 outubro 2015 
+         Por <a class="url fn" href="./pages/sobre-mim.html">Paulo Miranda Moreira</a>
+  
+   
+    </abbr>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Estou aprendendo [Ionic] (http://ionicframework.com/), um excelente framework para desenvolvimento de apps móveis híbridos (para <span class="caps">IOS</span> e&nbsp;Android).</p>
+<p>Tive alguns problemas para instalação, pois o Ionic depende do [Node.js} (https://nodejs.org/), que estava no repositório do Linux Mint com uma versão&nbsp;desatualizada.</p>
+<p>Tentei baixar diretamente do [repositório no Github] (https://github.com/nodejs/node), mas lá só havia a versão de desenvolvimento, e, mesmo conseguindo instalá-la, tive problemas para instalar o Ionic mais&nbsp;tarde.</p>
+<p>Achei a solução [aqui] (https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager) e reproduzo os passos abaixo. Estou utilizando Linux Mint&nbsp;17.</p>
+<p>No terminal, configuração e instalação do&nbsp;Node.js:</p>
+<div class="highlight"><pre>curl --silent --location https://deb.nodesource.com/setup_0.12 <span class="p">|</span> sudo bash -
+sudo apt-get install --yes nodejs
+</pre></div>
+
+
+<p>Instalação do&nbsp;Ionic:</p>
+<div class="highlight"><pre>sudo npm install -g ionic
+</pre></div>
+
+
+<p>Simples, não? Espero que esse post economize sua dor de&nbsp;cabeça!</p>
+  </div><!-- /.entry-content -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'eupaulo'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+            <hr/>
+            <footer id="contentinfo" class="footer">
+
+                <div class="social">
+                        <a href="https://twitter.com/paulomiramor"><i class="icon-twitter"></i>  </a>
+                        <a href="https://br.linkedin.com/pub/paulo-moreira/9a/868/81"><i class="icon-linkedin"></i>  </a>
+                        <a href="https://github.com/EuPaulo"><i class="icon-github"></i>  </a>
+                        <a href="http://stackoverflow.com/users/1930564/paulo-miramor?tab=profile"><i class="icon-stackoverflow"></i>  </a>
+                        <a href="mailto:paulomiramor@gmail.com"><i class="icon-envelope"></i> </a>
+                </div>
+            </footer><!-- /#contentinfo -->
+        </div>
+        <!--Add statistycs-->
+
+</body>
+</html>
