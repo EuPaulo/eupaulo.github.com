@@ -1,0 +1,154 @@
+Instalar R (versão 3.0.0 ou superior)
+Link para instalação
+
+Instalação do vim
+  sudo apt-get install vim
+
+
+Checar se vim tem instalado os features `+libcall`, `+clientserver` e `+conceal`.
+  vim
+  :version
+  
+No meu caso faltava o `+clientserver`. Para resolver o problema basta instalar o pacote `vim-gnome`:
+  sudo apt-get install vim-gnome
+  
+Instalar o pacote vimcom no R a partir do código fonte. Para isso antes é necessário instalar o X11 headers???:
+  sudo apt-get install libx11-dev
+  
+Depois, no R, basta utilizar o código abaixo para instalar o pacote `vimcom`
+  download.file("http://www.lepem.ufc.br/jaa/vimr/vimcom_1.2-6.tar.gz",
+                destfile = "vimcom_1.2-6.tar.gz")
+  install.packages("vimcom_1.2-6.tar.gz", type = "source",
+                    repos = NULL)
+                    
+                    
+Instalar tmux:
+  sudo apt-get install tmux
+  
+Instalar wmctrl:
+  sudo apt-get install wmctrl
+  
+Colocar no arquivo .Rprofile:
+   if(interactive()){
+       library(colorout)
+       library(setwidth)
+       options(vimcom.verbose = 1) # optional
+       library(vimcom)
+   }
+
+Colocar no arquivo .bashrc:
+   alias vimr="vim --servername VIM"
+   
+Observação: escolhi vimr porque vou utilizá-lo quando for utilizar o R.
+
+Começar nova sessão shell para o alias funcionar.
+
+Colocar no .vimrc
+   set nocompatible
+   syntax enable
+   filetype plugin on
+   filetype indent on
+   
+Baixar a última versão do plugin em 
+
+http://www.vim.org/scripts/script.php?script_id=2628
+
+No diretório em que o plugin baixado está:
+   vim Vim-R-plugin.vmb
+
+Depois que uma tela como essa aparecer:   
+
+
+Digite
+ :so %
+ 
+ e aperte enter quantas vezes for necessário até o fim da instalação.
+ Quando uma tela como essa aparecer:
+ 
+ saia do vim digitando :q
+ 
+Para entrar digite
+  tmux 
+  vimr novoArquivo.R
+
+Aparecerá tela do vim normal. Para sessão interativa do R:
+  \rf
+  
+Customização
+  Tela partida na vertical em vez de horizontal
+  
+Instruções de uso
+\l - não precisa estar no modo normal, pode estar no modo de inserção
+Shift + - no modo inserção cria o sinal de atribuição (<-), já com espaços.
+
+
+
+Próximo artigo: Opcionais na instalação do Vim-R-Plugin
+
+Como colorir adicionar coloração do output
+
+no R:
+  download.file("http://www.lepem.ufc.br/jaa/vimr/colorout_1.1-1.tar.gz",
+                destfile = "colorout_1.1-1.tar.gz")
+  install.packages("colorout_1.1-1.tar.gz", type = "source", repos = NULL)
+
+Obs: colocar library(colorout) no .Rprofile
+
+Suporte para 256 cores no emulador de terminal - ncurses-term
+  sudo apt-get install ncurses-term
+
+#install.packages("setwidth").
+Como autocompletar
+  
+  
+  
+Outro artigo:  
+  
+À parte:
+  
+Recebi mensagem de erro:
+
+Your runtime files seems to be outdated.
+See: https://github.com/jalvesaq/R-Vim-runtime [Press <Enter> to continue] 
+
+
+Entrando no link, descobri que deveria usar gerenciador de pacotes como Vundle, Pathogen, Vim-Plug ou Neobundle.
+Após ler rapidamente alguns blogs, me decidi pelo Vundle - me pareceu o melhor
+
+Vantagens do Vundle?
+
+Segundo o repositório no github, https://github.com/gmarik/Vundle.vim, para instalar:
+  $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+Modificar o arquivo .vimrc de acordo com as instruções no repositório. O meu ficou assim:
+
+
+Depois `vim` e dentro do vim :PluginInstall
+
+Tela esquisita de instalação de plugins e sair com `:q`
+
+
+
+ou
+  
+  vim +PluginInstall +qall
+
+  
+ 
+Posts futuros:
+
+RShiny 
+Teorema do limite central. Mostrar o aplicativo CLTApp
+
+
+Cubo mágico
+
+
+ não tinha conhecimento algum sobre o que era programar e que R era programação. Era usuário de Windows.
+Até que em certo dia, meu irmão, já conhecedor das maravilhas da computação, me perguntou "Por que você não usa Linux?"
+Logo
+
+Vim
+vim-adventures.com
+http://rayninfo.co.uk/vimtips.html
+http://stackoverflow.com/questions/597077/what-are-the-benefits-of-learning-vim
