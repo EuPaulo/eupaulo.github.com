@@ -102,29 +102,29 @@ A próxima parte seria entender como usar o R com Vim. Compartilho com você a a
 <h1>Mãos à&nbsp;obra</h1>
 <h2>Instalando&nbsp;pré-requisitos</h2>
 <h3>Instalação do&nbsp;Vim</h3>
-<div class="highlight"><pre>sudo apt-get install vim
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">vim</span>
 </pre></div>
 
 
 <p>Checar se Vim tem instalado os features <code>+libcall</code>, <code>+clientserver</code> e <code>+conceal</code>. No&nbsp;terminal:</p>
-<div class="highlight"><pre>vim
+<div class="highlight"><pre><span class="n">vim</span>
 </pre></div>
 
 
 <p>E depois que o Vim&nbsp;abrir:</p>
-<div class="highlight"><pre><span class="p">:</span>version
+<div class="highlight"><pre><span class="p">:</span><span class="k">version</span>
 </pre></div>
 
 
 <p>No meu caso faltava o <code>+clientserver</code>. Para resolver o problema bastou instalar o pacote <code>vim-gnome</code>:</p>
-<div class="highlight"><pre>sudo apt-get install vim-gnome
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">vim</span><span class="o">-</span><span class="n">gnome</span>
 </pre></div>
 
 
 <h3>Instalação e configuração do&nbsp;R</h3>
 <p>Se você ainda não o fez, instale o <a href="http://r-project.org/">R</a> (versão 3.0.0 ou&nbsp;superior)</p>
 <p>Instalar o pacote vimcom no R a partir do código fonte. Para isso antes é necessário antes instalar o <em>X11 headers</em>:</p>
-<div class="highlight"><pre>sudo apt-get install libx11-dev
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libx11</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 
 
@@ -137,27 +137,27 @@ install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.g
 
 
 <p>O arquivo .Rprofile é um arquivo de configuração que guarda suas opções e pacotes a serem carregados ao se iniciar o R. Colocar no arquivo&nbsp;.Rprofile:</p>
-<div class="highlight"><pre><span class="kr">if</span><span class="p">(</span><span class="kp">interactive</span><span class="p">()){</span>
-    <span class="kp">options</span><span class="p">(</span>vimcom.verbose <span class="o">=</span> <span class="m">1</span><span class="p">)</span> <span class="c1"># opcional</span>
-    <span class="kn">library</span><span class="p">(</span>vimcom<span class="p">)</span>
+<div class="highlight"><pre><span class="kr">if</span><span class="p">(</span>interactive<span class="p">()){</span>
+    options<span class="p">(</span>vimcom.verbose <span class="o">=</span> <span class="m">1</span><span class="p">)</span> <span class="c1"># opcional</span>
+    library<span class="p">(</span>vimcom<span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
 
 <h3>Instalação do&nbsp;tmux:</h3>
 <p>O tmux (terminal multiplexer) permite a utilização do editor de texto e do R na mesma janela do&nbsp;terminal.</p>
-<div class="highlight"><pre>sudo apt-get install tmux
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">tmux</span>
 </pre></div>
 
 
 <h3>Instalação&nbsp;wmctrl:</h3>
-<div class="highlight"><pre>sudo apt-get install wmctrl
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">wmctrl</span>
 </pre></div>
 
 
 <h3>Configurações</h3>
 <p>Colocar no arquivo&nbsp;.bashrc:</p>
-<div class="highlight"><pre><span class="nb">alias </span><span class="nv">vimr</span><span class="o">=</span><span class="s2">&quot;vim --servername VIM&quot;</span>
+<div class="highlight"><pre><span class="n">alias</span> <span class="n">vimr</span><span class="o">=</span><span class="s">&quot;vim --servername VIM&quot;</span>
 </pre></div>
 
 
@@ -173,7 +173,7 @@ install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.g
 <h2>Instalação do&nbsp;Vim-R-Plugin</h2>
 <p>Baixar a última versão do plugin <a href="http://www.vim.org/scripts/script.php?script_id=2628">aqui</a>.</p>
 <p>No diretório em que o plugin baixado está, execute no&nbsp;terminal:</p>
-<div class="highlight"><pre>vim Vim-R-plugin.vmb
+<div class="highlight"><pre><span class="n">vim</span> <span class="n">Vim</span><span class="o">-</span><span class="n">R</span><span class="o">-</span><span class="n">plugin</span><span class="p">.</span><span class="n">vmb</span>
 </pre></div>
 
 
@@ -189,8 +189,8 @@ install.packages<span class="p">(</span><span class="s">&quot;vimcom_1.2-6.tar.g
 <p>saia do vim digitando <code>:q</code>.</p>
 <p>Parabéns! Você concluiu a instalação do Vim-R-Plugin. Agora veja abaixo como iniciar uma sessão do vim com&nbsp;R.</p>
 <p>Para entrar, execute no&nbsp;terminal:</p>
-<div class="highlight"><pre>tmux
-vimr novoArquivo.R
+<div class="highlight"><pre><span class="n">tmux</span>
+<span class="n">vimr</span> <span class="n">novoArquivo</span><span class="p">.</span><span class="n">R</span>
 </pre></div>
 
 
@@ -218,14 +218,14 @@ install.packages<span class="p">(</span><span class="s">&quot;colorout_1.1-1.tar
 <h3>setwidth</h3>
 <p>Ajusta automaticamente a largura da sessão do R no terminal de acordo com o tamanho da janela.
 É um pacote que pode ser instalado do <span class="caps">CRAN</span>:</p>
-<div class="highlight"><pre>install.packages<span class="p">(</span><span class="s">&quot;setwidth&quot;</span><span class="p">)</span><span class="m">.</span>
+<div class="highlight"><pre>install.packages<span class="p">(</span><span class="s">&quot;setwidth&quot;</span><span class="p">)</span>.
 </pre></div>
 
 
 <p>Adicione ao arquivo <code>.Rprofile</code> o comando <code>library(colorout)</code>, dentro das chaves do <code>if(interactive())</code>.</p>
 <h3>ncurses-term</h3>
 <p>Suporte para 256 cores no emulador de terminal - ncurses-term. No&nbsp;terminal:</p>
-<div class="highlight"><pre>sudo apt-get install ncurses-term
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ncurses</span><span class="o">-</span><span class="n">term</span>
 </pre></div>
 
 
