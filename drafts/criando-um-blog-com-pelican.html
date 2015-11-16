@@ -90,27 +90,27 @@ Como eu ainda não tinha o pip instalado, bastou utilizar
     sudo apt-get install&nbsp;python-pip</p>
 <p>Mais informações sobre instalação do pip (outras plataformas) <a href="https://pip.pypa.io/en/stable/installing.html">aqui</a>.</p>
 <h2>Instalando o Pelican com o&nbsp;pip</h2>
-<div class="highlight"><pre><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>
+<div class="highlight"><pre>sudo pip install pelican
 </pre></div>
 
 
 <p>Precisei usar o <code>sudo</code>.</p>
 <h2>Começando um novo&nbsp;blog</h2>
 <p>No diretório que você quiser colocar o&nbsp;blog:</p>
-<div class="highlight"><pre><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+<div class="highlight"><pre>pelican-quickstart
 </pre></div>
 
 
 <p>Estrutura de&nbsp;arquivos:</p>
-<div class="highlight"><pre><span class="n">yourproject</span><span class="o">/</span>
-<span class="err">├──</span> <span class="n">content</span>
-<span class="err">│</span>   <span class="err">└──</span> <span class="p">(</span><span class="n">pages</span><span class="p">)</span>
-<span class="err">├──</span> <span class="n">output</span>
-<span class="err">├──</span> <span class="n">develop_server</span><span class="p">.</span><span class="n">sh</span>
-<span class="err">├──</span> <span class="n">fabfile</span><span class="p">.</span><span class="n">py</span>
-<span class="err">├──</span> <span class="n">Makefile</span>
-<span class="err">├──</span> <span class="n">pelicanconf</span><span class="p">.</span><span class="n">py</span>       <span class="err">#</span> <span class="n">Main</span> <span class="n">settings</span> <span class="n">file</span>
-<span class="err">└──</span> <span class="n">publishconf</span><span class="p">.</span><span class="n">py</span>       <span class="err">#</span> <span class="n">Settings</span> <span class="n">to</span> <span class="n">use</span> <span class="n">when</span> <span class="n">ready</span> <span class="n">to</span> <span class="n">publish</span>
+<div class="highlight"><pre>yourproject/
+├── content
+│   └── <span class="o">(</span>pages<span class="o">)</span>
+├── output
+├── develop_server.sh
+├── fabfile.py
+├── Makefile
+├── pelicanconf.py       <span class="c"># Main settings file</span>
+└── publishconf.py       <span class="c"># Settings to use when ready to publish</span>
 </pre></div>
 
 
@@ -118,7 +118,7 @@ Como eu ainda não tinha o pip instalado, bastou utilizar
 <p>Como usar&nbsp;pythonHTTPserver&#8230;</p>
 <p>Onde colocar as&nbsp;páginasl</p>
 <p>Why pelican:&nbsp;http://decafbad.net/2015/06/25/why-pelican/</p>
-<div class="highlight"><pre><span class="n">make</span> <span class="n">github</span>
+<div class="highlight"><pre>make github
 </pre></div>
   </div><!-- /.entry-content -->
 <div id="disqus_thread"></div>

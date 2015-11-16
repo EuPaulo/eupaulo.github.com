@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+<link rel="shortcut icon" href="favicon.ico"/>  
+<head>
+        <title>eu, Paulo</title>
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/font-awesome.css" type="text/css" />
+        <meta charset="utf-8" />
+      
+
+        <!-- Javascript-->
+        <script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script async type="text/javascript"> 
+        $(function() {
+            function invisibleMenu() {
+                var now = 0;
+                var pixels = 300;
+                var opacity = -1;
+
+                var move = function() {
+                    now = $(window).scrollTop();
+                    if (now > pixels && opacity !== 0)
+                        opacity = 0;
+                    else if (now < pixels){
+                        // Depends on the position not if scrolls down or up
+                        opacity = (1 - now/pixels);
+                    }
+                    $("div.navigation").css({"opacity": opacity});
+                }
+                $(window).scroll(move);
+                move();
+            }
+            invisibleMenu();
+          });
+          </script> 
+</head>
+
+<body id="index" class="home">
+     <div class="navigation">
+        <ol class="nav">
+          <li class="current"><a href=".">Blog</a> </li>
+          <li><a href="./archives.html">Arquivo</a></li>
+          <li><a href="./tags.html">Tags</a> </li>
+<!--          <li><a href="">RSS</a> </li> -->
+          <li><a href="./pages/sobre-mim.html">Sobre</a> </li>
+        </ol>
+      </div>
+    
+        <header id="banner" class="body">
+                <div  style="line-height: 1" class="banner"><a href=".">eu, Paulo <p></p> <strong>Programação, estatística e vida...</strong></a></div>
+<!--                <div class="banner"> <strong>Programação, estatística e vida...</strong></div> -->
+        </header><!-- /#banner -->
+<!--        <nav id="menu"><ul>
+            <li class="active"><a href="./category/artigos.html">Artigos</a></li>
+
+        </ul></nav><!-- /#menu -->
+        
+        <div class="box">
+<section id="content" class="body">
+  <header class="post">
+    <h1 class="entry-title">
+      Minha primeira conferência&nbsp;Python
+    </h1>
+  </header>
+  <footer class="post-info">
+    <abbr>
+      Seg 30 novembro 2015 
+         Por <a class="url fn" href="./pages/sobre-mim.html">Paulo Miranda Moreira</a>
+  
+   
+    </abbr>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Uma das coisas que sempre me chamou a atenção quando busco informações sobre linguagens open source foi a disponibilidade e atenção do outro lado da internet. Por meio de listas de e-mail, Stackoverflow, e fóruns, é possível conseguir ajuda para virtualmente tudo o que você precisa, do básico ao&nbsp;avançado.</p>
+<p>Comecei a aprender Python pra valer há pouco tempo, e por acaso me fiquei sabendo que iria acontecer a <a href="http://pythonbrasil.github.io/pythonbrasil11-site/">11ª Conferência Brasileira da Comunidade Python</a>, organizada pela <a href="http://associacao.python.org.br/">Associação Python Brasil</a>. O evento ocorreu em São José dos Campos, São Paulo, de 7 a 11 de&nbsp;Novembro.</p>
+<p>Me animei com a oportunidade de conhecer o rosto da comunidade Python do Brasil. Logo chequei preço de passagem e opções de hotel, e vi que seria viável participar. Não participei dos tutoriais nos dias 7 e 8, cheguei no dia 8 à&nbsp;noite.</p>
+<p>Posso dizer que valeu a pena. A conferência contou com palestrantes de relevância, inclusive internacional, e trilhas que atenderam às minhas necessidades : #PyData, #carreira, #web, #iniciantes. Foram muitas palestras interessantes, que me aguçaram a curiosidade para pesquisar até tarde sobre os assuntos&nbsp;tratados.</p>
+<p>Um dos pontos altos da conferência foram as <em>lightning talks</em>, mini palestras com duração máxima de 5 minutos. São momentos mais informais, em que há a liberdade para se apresentar sobre qualquer tema, como divulgar um <em>hacker space</em>, mostrar um projeto próprio, ou até mandar uma importante mensagem sobre depressão. Mas ai de quem ultrapassasse 5 minutos - o barulho das palmas abafava a fala que tentava se&nbsp;estender. </p>
+<p>Além de tudo isso, deixei para o fim o principal, como enfatizado em vários momentos durante a conferência: as pessoas. A possibilidade de conhecer novas pessoas, diferentes realidades e exercitar o <em>networking</em> foi especial. Entre outras pessoas, pude conhecer Luciano Ramalho, autor do livro Python Fluente, e, de quebra, trazer para casa seu o livro autografado. Também fiquei sabendo da existência de um grupo de desenvolvedores Python em Brasília, o <a href="http://df.python.org.br/">Grupy-<span class="caps">DF</span></a>, de repente apareço no próximo encontro aqui em Brasília. Apareceu lá também o pessoal do <a href="http://www.calango.club/">Calango Hacker Clube</a>, um espaço hacker onde pessoas podem trocar conhecimento e&nbsp;experiência. </p>
+<p>Os <em>sprints</em> também foram ótimos momentos para conhecer novas pessoas e exercitar a colaboração, palavra que foi muito presente e me chamou atenção. Foram um momento em que os interessados (programadores, designers) se juntaram para conhecer e colaborar em projetos <em>open source</em>. Foi importante para mim o fato de encorajarem iniciantes e não programadores a participar, mesmo que contribuindo em traduções ou documentação, pois seria também um momento de aprendizado. E, principalmente, um momento em que poderíamos aprender como ocorre a construção do código e, quem sabe, dar um pontapé em uma colaboração a longo&nbsp;prazo.</p>
+<p>Deixo uma foto de um dos grupos que participei durante os <em>sprints</em>, que contribuiu para o projeto <a href="https://github.com/fabiommendes/pytuga">Pytuga</a>, de Fábio Mendes, criador do Pytuguês (Python em português), cujo objetivo é ensinar crianças e jovens a&nbsp;programar:</p>
+<p><img alt="sprintsPyBr" src="./images/sprintsPyBr.jpg" /></p>
+<p><em>Da esquerda para a direita: eu, Griselda Jara, Fábio Mendes, Júlio Trevisan e uma pessoa que saiu pouco depois que eu cheguei, portanto não tive tempo de&nbsp;conhecê-lo&#8230;</em></p>
+<p>A próxima Python Brasil será em Florianópolis. E aí, topa&nbsp;ir?</p>
+  </div><!-- /.entry-content -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'eupaulo'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+            <hr/>
+            <footer id="contentinfo" class="footer">
+
+                <div class="social">
+                        <a href="https://twitter.com/paulomiramor"><i class="icon-twitter"></i>  </a>
+                        <a href="https://br.linkedin.com/pub/paulo-moreira/9a/868/81"><i class="icon-linkedin"></i>  </a>
+                        <a href="https://github.com/EuPaulo"><i class="icon-github"></i>  </a>
+                        <a href="http://stackoverflow.com/users/1930564/paulo-miramor?tab=profile"><i class="icon-stackoverflow"></i>  </a>
+                        <a href="mailto:paulomiramor@gmail.com"><i class="icon-envelope"></i> </a>
+                </div>
+            </footer><!-- /#contentinfo -->
+        </div>
+        <!--Add statistycs-->
+
+</body>
+</html>
