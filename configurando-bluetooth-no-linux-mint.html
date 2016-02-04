@@ -48,7 +48,7 @@
           <li class="current"><a href=".">Blog</a> </li>
           <li><a href="./archives.html">Arquivo</a></li>
           <li><a href="./tags.html">Tags</a> </li>
-<!--          <li><a href="./">RSS</a> </li> -->
+<!--          <li><a href="">RSS</a> </li> -->
           <li><a href="./pages/sobre-mim.html">Sobre</a> </li>
         </ol>
       </div>
@@ -58,66 +58,52 @@
 <!--                <div class="banner"> <strong>Programação, estatística e vida...</strong></div> -->
         </header><!-- /#banner -->
 <!--        <nav id="menu"><ul>
-            <li><a href="./category/artigos.html">Artigos</a></li>
+            <li class="active"><a href="./category/artigos.html">Artigos</a></li>
 
         </ul></nav><!-- /#menu -->
         
         <div class="box">
-        
-<section id="content">
-<div class="posts">
-    <ol id="post-list">
-        
-        <li>
-            <article class="archive">
-                <header> 
-                    <h1 class="archive-entry-title">
-                        <a href="./usando-vim-e-r.html" rel="bookmark" title="Permalink to Usando vim e&nbsp;R!?">Usando vim e&nbsp;R!?</a>
-                    </h1>
-                </header>
-                <footer class="post-info">
-                    <abbr>
-                      Qui 09 julho 2015 
- <!--                                              By <a class="url fn" href="./author/paulo-miranda-moreira.html">Paulo Miranda Moreira</a>
+<section id="content" class="body">
+  <header class="post">
+    <h1 class="entry-title">
+      Configurando bluetooth no Linux&nbsp;Mint
+    </h1>
+  </header>
+  <footer class="post-info">
+    <abbr>
+      Qui 04 fevereiro 2016 
+         Por <a class="url fn" href="./pages/sobre-mim.html">Paulo Miranda Moreira</a>
   
--->
-                    </abbr>
-                    <div class="entry-summary"> <p>Quando comecei a aprender R (nos idos tempos de 2010), ainda usava Windows, e, até por indicação do professor da ...</p>
-                    <a href="./usando-vim-e-r.html">Continuar lendo</a></div>
-                </footer><!-- /.post-info -->
-                <!-- /.entry-content -->
-            </article>
-        </li>
-        
-        <li>
-            <article class="archive">
-                <header> 
-                    <h1 class="archive-entry-title">
-                        <a href="./hello-world.html" rel="bookmark" title="Permalink to Hello,&nbsp;World!">Hello,&nbsp;World!</a>
-                    </h1>
-                </header>
-                <footer class="post-info">
-                    <abbr>
-                      Dom 28 junho 2015 
- <!--                                              By <a class="url fn" href="./author/paulo-miranda-moreira.html">Paulo Miranda Moreira</a>
-  
--->
-                    </abbr>
-                    <div class="entry-summary"> <p>Inaugurando o&nbsp;blog!</p>
-<p>Tenho o objetivo de postar nesse espaço conteúdo focado em meu aprendizado sobre estatística e programação,
-voltado ...</p>
-                    <a href="./hello-world.html">Continuar lendo</a></div>
-                </footer><!-- /.post-info -->
-                <!-- /.entry-content -->
-            </article>
-        </li>
-    </ol><!-- /#posts-list -->
-</div>
-<p class="paginator">
-            <a href="./index.html">&laquo;</a>
-    Página 2 / 2
-</p>
-</section><!-- /#content -->
+   
+    </abbr>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Quando o adquiri meu computador (há uns 4 anos) tentei rapidamente configurar o bluetooth, mas, por não ter o costume de utilizá-lo, acabei deixando de lado. Esses dias ganhei uma caixa de som que utiliza o bluetooth para se conectar, então novamente tentei configurá-lo, mas não tive sorte. Após instalar o <code>blueman</code>, ao tentar conectar com o equipamento de áudio sempre via o erro &#8220;stream setup failed&#8221;. Finalmente, achei [essa dica] (http://firstdoit.com/quick-tip-bluetooth-a2dp-on-linux-mint-17-qiana-mate/), lembrando que vale para Linux Mint 17 Qiana <span class="caps">MATE</span>:</p>
+<p>Instalar os módulos recomendados:
+    :::shell
+    sudo apt-get install blueman bluez pulseaudio-module-bluetooth &#8212;install-suggests
+    pactl load-module&nbsp;module-bluetooth-discover</p>
+<p>Agora basta clicar no ícone do bluetooth da barra de ferramentas, selecionar Devices, e conectar o equipamento. Importante notar que, no assistente do bluetooth, ao clicar com o botão direito no equipamento conectado, em &#8220;audio profile&#8221;, é melhor selecionar a opção &#8220;High Fidelity Playback (<span class="caps">A2DP</span>)&#8221; para maior qualidade de&nbsp;som.</p>
+<p>O inconveniente é que é necessário rodar o último comando toda vez que o computador é reiniciado. Para resolver esse problema, um comentário de Kory Wiesner no post acima sugeriu o&nbsp;seguinte:</p>
+<p><span class="caps">MENU</span> &#8212;&gt; Preferences &#8212;&gt; Startup Applications
+Clique em &#8220;Add&#8221;, dê um nome ao seu script e no comando coloque: bash -c &#8220;sleep 5; pactl load-module&nbsp;module-bluetooth-discover&#8221;. </p>
+<p>Adicione um comentário, se quiser, feche e tenha certeza que o checkbox do comando que você acabou de criar está&nbsp;selecionado.</p>
+<p>O tempo de <code>sleep</code> é necessário para que o sistema carregue todo o aparato necessário para que o comando seguinte seja executado. No meu caso, em vez de 5 segundos, precisei colocar&nbsp;20.</p>
+<p>Pronto! Agora desfrute do seu&nbsp;bluetooth!!!</p>
+<p>http://tuxdiary.com/2015/07/05/fix-stream-setup-failed-error-with-blueman/</p>
+  </div><!-- /.entry-content -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'eupaulo'; 
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
             <hr/>
             <footer id="contentinfo" class="footer">
 
