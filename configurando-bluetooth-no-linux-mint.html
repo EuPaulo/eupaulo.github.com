@@ -79,14 +79,20 @@
   </footer><!-- /.post-info -->
   <div class="entry-content">
     <p>Quando o adquiri meu computador (há uns 4 anos) tentei rapidamente configurar o bluetooth, mas, por não ter o costume de utilizá-lo, acabei deixando de lado. Esses dias ganhei uma caixa de som que utiliza o bluetooth para se conectar, então novamente tentei configurá-lo, mas não tive sorte. Após instalar o <code>blueman</code>, ao tentar conectar com o equipamento de áudio sempre via o erro &#8220;stream setup failed&#8221;. Finalmente, achei [essa dica] (http://firstdoit.com/quick-tip-bluetooth-a2dp-on-linux-mint-17-qiana-mate/), lembrando que vale para Linux Mint 17 Qiana <span class="caps">MATE</span>:</p>
-<p>Instalar os módulos recomendados:
-    :::shell
-    sudo apt-get install blueman bluez pulseaudio-module-bluetooth &#8212;install-suggests
-    pactl load-module&nbsp;module-bluetooth-discover</p>
+<p>Instalar os módulos&nbsp;recomendados:</p>
+<div class="highlight"><pre>sudo apt-get install blueman bluez pulseaudio-module-bluetooth --install-suggests
+pactl load-module module-bluetooth-discover
+</pre></div>
+
+
 <p>Agora basta clicar no ícone do bluetooth da barra de ferramentas, selecionar Devices, e conectar o equipamento. Importante notar que, no assistente do bluetooth, ao clicar com o botão direito no equipamento conectado, em &#8220;audio profile&#8221;, é melhor selecionar a opção &#8220;High Fidelity Playback (<span class="caps">A2DP</span>)&#8221; para maior qualidade de&nbsp;som.</p>
 <p>O inconveniente é que é necessário rodar o último comando toda vez que o computador é reiniciado. Para resolver esse problema, um comentário de Kory Wiesner no post acima sugeriu o&nbsp;seguinte:</p>
 <p><span class="caps">MENU</span> &#8212;&gt; Preferences &#8212;&gt; Startup Applications
-Clique em &#8220;Add&#8221;, dê um nome ao seu script e no comando coloque: bash -c &#8220;sleep 5; pactl load-module&nbsp;module-bluetooth-discover&#8221;. </p>
+Clique em &#8220;Add&#8221;, dê um nome ao seu script e no comando&nbsp;coloque: </p>
+<div class="highlight"><pre>bash -c <span class="s2">&quot;sleep 5; pactl load-module module-bluetooth-discover&quot;</span>.
+</pre></div>
+
+
 <p>Adicione um comentário, se quiser, feche e tenha certeza que o checkbox do comando que você acabou de criar está&nbsp;selecionado.</p>
 <p>O tempo de <code>sleep</code> é necessário para que o sistema carregue todo o aparato necessário para que o comando seguinte seja executado. No meu caso, em vez de 5 segundos, precisei colocar&nbsp;20.</p>
 <p>Pronto! Agora desfrute do seu&nbsp;bluetooth!!!</p>
